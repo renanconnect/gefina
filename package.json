@@ -1,0 +1,10 @@
+{
+    "name": "gefina",
+    "description": "Sistema de Gestão de contas a receber.",
+    "version": "0.0.0",
+    "author": "Renan Franca",
+    "type": "module",
+    "dependencies": {
+        "express": "^5.2.1"
+    }
+}
