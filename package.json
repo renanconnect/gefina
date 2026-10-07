@@ -3,6 +3,9 @@
     "description": "Sistema de Gestão de contas a receber.",
     "version": "0.0.0",
     "author": "Renan Franca",
+    "scripts": {
+        "dev": "node --watch ./server"
+    },
     "type": "module",
     "dependencies": {
         "express": "^5.2.1"
