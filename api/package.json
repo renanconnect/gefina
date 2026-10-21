@@ -1,18 +1,18 @@
 {
-    "name": "gefina",
-    "description": "Sistema de Gestão de contas a receber.",
-    "version": "0.0.0",
-    "author": "Renan Franca",
-    "scripts": {
-        "dev": "node --watch ./server.ts",
-        "check": "tsc --noEmit"
-    },
-    "type": "module",
-    "dependencies": {
-        "express": "^5.2.1"
-    },
-    "devDependencies": {
-        "@types/express": "^5.0.6",
-        "typescript": "^7.0.2"
-    }
+  "name": "gefina",
+  "description": "Sistema de Gestão de contas a receber.",
+  "version": "0.0.0",
+  "author": "Renan Franca",
+  "scripts": {
+    "dev": "node --watch ./server.ts",
+    "check": "tsc --noEmit"
+  },
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "typescript": "^7.0.2"
+  }
 }
