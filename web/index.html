@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gefina</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js">
+    </script>
+
+    <script type="text/babel">
+        const container = document.querySelector('div');
+
+        const invoices = [
+            {
+                id: 1,
+                amount: 100,
+                status: "paid",
+                issuedDate: "2026-10-07",
+                dueDate: "2026-11-05",
+                customers: {
+                    id: 1,
+                    name: "John Doe",
+                    email: "john.doe@example.com"
+                }
+            },
+            {
+                id: 2,
+                amount: 200,
+                status: "pending",
+                issuedDate: "2026-10-07",
+                dueDate: "2026-11-05",
+                customers: {
+                    id: 2,
+                    name: "Jane Smith",
+                    email: "jane.smith@example.com"
+                }
+            },
+            {
+                id: 3,
+                amount: 300,
+                status: "paid",
+                issuedDate: "2026-10-07",
+                dueDate: "2026-12-05",
+                customers: {
+                    id: 3,
+                    name: "Bob Johnson",
+                    email: "bob.johnson@example.com"
+                }
+            }
+        ];
+
+        function statusLabel(status) {
+            switch (status) {
+                case "paid":
+                    return <span style={{ color: "green" }}>Pago</span>;
+                case "pending":
+                    return <span style={{ color: "orange" }}>Pendente</span>;
+                case "overdue":
+                    return <span style={{ color: "red" }}>Atrasado</span>;
+                default:
+                    return <span>{status}</span>;
+            }
+        }
+
+        const Title = () => {
+            return <h1> Faturas </h1>;
+        };
+
+        const TableRow = (props) => {
+            return <tr>
+                <td>{props.data.customers.name}</td>
+                <td>R$ {props.data.amount.toFixed(2)}</td>
+                <td>{props.data.issuedDate}</td>
+                <td>{props.data.dueDate}</td>
+                <td>{statusLabel(props.data.status)}</td>
+            </tr>
+        };
+        const Table = () => {
+            return <table>
+                <thead>
+                    <th>Cliente</th>
+                    <th>Valor</th>
+                    <th>Emissão</th>
+                    <th>Vencimento</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    {invoices.map((invoice) => {
+                        return <TableRow key={invoice.id} data={invoice} />
+                    })}
+                </tbody>
+            </table>
+        };
+
+        const App = () => {
+            return <>
+                <Title />
+                <Table />
+            </>;
+        };
+        ReactDOM.createRoot(container).render(<App />);
+            <Table />
+        
+    </script>
+</body>
+
+</html>
