@@ -18,8 +18,8 @@ const invoices: Invoice[] = [
     id: 1,
     amount: 100,
     status: "paid",
-    issuedDate: "07-10-2026",
-    dueDate: "05-11-2026",
+    issuedDate: "2026-10-07",
+    dueDate: "2026-11-05",
     customers: {
       id: 1,
       name: "John Doe",
