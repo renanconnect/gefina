@@ -3,12 +3,12 @@ import { findAllInvoices, findInvoiceById } from "./invoice.service.ts";
 
 const router = Router();
 
-router.get("/api/invoices", (_req, res) => {
+router.get("/", (_req, res) => {
   const invoices = findAllInvoices();
   res.status(200).json(invoices);
 });
 
-router.get("/api/invoices/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const invoiceId = Number(req.params.id);
   const invoice = findInvoiceById({ id: invoiceId });
   if (!invoice) {
