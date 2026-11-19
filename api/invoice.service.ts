@@ -22,8 +22,8 @@ const invoices: Invoice[] = [
     dueDate: "2026-11-05",
     customers: {
       id: 1,
-      name: "John Doe",
-      email: "john.doe@example.com"
+      name: "Renan França",
+      email: "renan.franca@example.com"
     }
   },
   {

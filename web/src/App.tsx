@@ -1,6 +1,7 @@
 import {Invoice} from './invoiceType.ts';
 
 import InvoiceTable from './InvoiceTable.tsx';
+import { useEffect, useState } from 'react';
 
  const invoices: Invoice[] = [
             {
@@ -42,8 +43,33 @@ import InvoiceTable from './InvoiceTable.tsx';
         ];
 
 export default function App() {
+    const [invoices, setInvoices] = useState<Invoice[]>([]);
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+
+    useEffect(() => {
+
+        async function getInvoices() {
+            try {
+            const response = await fetch("/api/invoices");
+            const datas = await response.json();
+            setInvoices(datas);
+            return datas;
+            } catch (error) {
+            setError("Falha ao buscar faturas.");
+            } finally {
+            setLoading(false);
+            }
+        }
+        
+        getInvoices();
+        
+    }, []);
+    
+    
+
     return <>
         <h1>Faturas</h1>
-        <InvoiceTable datas={invoices} />
+        {loading ? <p>Carregando...</p> : ( error ? <p>{error}</p> : <InvoiceTable datas={invoices} />)}
     </>;
 }

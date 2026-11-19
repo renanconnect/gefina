@@ -5,9 +5,9 @@ const router = Router();
 
 router.get("/", (_req, res) => {
   const invoices = findAllInvoices();
+  
   res.status(200).json(invoices);
 });
-
 router.get("/:id", (req, res) => {
   const invoiceId = Number(req.params.id);
   const invoice = findInvoiceById({ id: invoiceId });
