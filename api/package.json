@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "dev": "node --watch ./server.ts",
+        "start": "node ./server.ts",
+        "dev": "node --watch --env-file=.env ./server.ts",
         "check": "tsc --noEmit"
     },
     "type": "module",
